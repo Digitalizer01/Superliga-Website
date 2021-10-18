@@ -190,6 +190,21 @@ body {
   margin-bottom: 5%;
 }
 
+/* Clasificación de los equipos */
+
+
+.clasificacion table,
+.clasificacion td,
+.clasificacion th {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 2px black solid;
+}
+
 /* Footer */
 .footer {
   text-align: left;
@@ -224,23 +239,3 @@ body {
     width: 100%;
   }
 }
-
-background: center
-
-/
-contain no-repeat
-url
-
-(
-"../../media/examples/firefox-logo.svg"
-)
-,
-#eee
-
-35
-%
-url
-
-(
-"Portada_cabecera.jpg"
-)
