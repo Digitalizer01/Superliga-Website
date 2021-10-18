@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+
+table, th, td {
+  vertical-align: top;
+}
+
+.tabla_invisible {
+  border: 0px;
+}
+
+input {
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.hover-title {
+  display: inline;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.hover-image {
+  position: absolute;
+  visibility: hidden;
+}
+
+body:not(.mobile) .hover-title:hover + .hover-image {
+  visibility: visible;
+  pointer-events: none;
+}
+
+.hover-image {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Change width and height to scale images */
+  width: 90vw;
+  height: 90vh;
+}
+
+.hover-image img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  margin-bottom: 0;
+}
+
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-image: url('../img/background.png');
+}
+
+/* Header/Blog Title */
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #55944C;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #365F30;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 75%;
+  padding-right: 6%;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.centercolumn {
+  float: center;
+  width: 100%;
+}
+
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+  border-left: 1px solid black;
+  height: 500px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/* Datos de registro e inicio */
+.datos_inicio_sesion {
+  width: 40%;
+  padding-left: 20px;
+  margin: auto;
+}
+
+.datos_registro {
+  width: 40%;
+  padding-left: 20px;
+  margin: auto;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Encuesta */
+.encuesta {
+  background-color: #E8E8E8;
+  padding: 20px;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: medium;
+  border-color: #C6C6C6;
+  margin-right: 20px;
+}
+
+.row {
+  background-color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Imagen de */
+
+.imagen_notica_grande {
+  text-align: center;
+  color: gray;
+}
+
+/* Like y dislike de la noticia */
+
+.like_dislike {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* Footer */
+.footer {
+  text-align: left;
+  background-color: white;
+}
+
+.footer_icon {
+  text-align: left;
+}
+
+/* Scroll up */
+.scroll_up {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  border-radius: 100%;
+  text-align: center;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+background: center
+
+/
+contain no-repeat
+url
+
+(
+"../../media/examples/firefox-logo.svg"
+)
+,
+#eee
+
+35
+%
+url
+
+(
+"Portada_cabecera.jpg"
+)
