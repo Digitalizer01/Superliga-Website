@@ -2,8 +2,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="css/General.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="js/Scroll_arriba.js">
   </script>
+  <script type="text/javascript" src="js/Menu.js">
+  </script>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 </head>
 <body>
 
@@ -11,14 +15,21 @@
   <a href="index.html"><img src="img/header.png" alt="Portada"></a>
 </div>
 
-<div class="topnav">
-  <a href="index.html">Inicio</a>
-  <a href="html/Noticias.html">Noticias</a>
-  <a href="html/Clasificacion.html">Clasificación</a>
-  <a href="html/Equipos.html">Equipos</a>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
 
-  <a href="html/IniciarSesion.html" style="float:right">Iniciar sesión</a>
-</div>
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <a href="#home" class="active">Logo</a>
+    <div id="myLinks">
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="BurguerMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 
 <div class="row">
   <div class="leftcolumn">
