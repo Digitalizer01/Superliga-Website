@@ -20,6 +20,7 @@ input {
   width: 50%;
 }
 
+/* Mostrar la imagen agrandada en la página que recopila noticias */
 .hover-title {
   display: inline;
   pointer-events: auto;
@@ -134,6 +135,7 @@ body {
   width: 40%;
   text-align: center;
   margin: auto;
+  width: 100%;
 }
 
 .datos_registro {
@@ -178,7 +180,7 @@ body {
   clear: both;
 }
 
-/* Imagen de */
+/* Imagen de las noticas en la página de su propia notica*/
 
 .imagen_notica_grande {
   text-align: center;
@@ -233,8 +235,47 @@ body {
   text-align: center;
 }
 
+/* Topnav para móviles */
+.topnav_smartphone {
+  display: none;
+}
+
+/* Menú de hamburguesa */
+.burger_icon {
+  display: none;
+}
+
+/* Botón para subir hasta la parte superior de la página */
+.boton_arriba {
+  width: 100px;
+  height: 535;
+  cursor: pointer;
+}
+
+/* Vídeos de YouTube */
+.youtube-video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-video-container::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.youtube-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive para tablets */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 810px) {
   .leftcolumn, .rightcolumn {
     width: 100%;
     padding: 0;
@@ -247,10 +288,38 @@ body {
     margin-right: 2%;
     background-image: url('../img/background.png');
   }
+
+  .active {
+    display: none;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .topnav_smartphone {
+    display: none;
+  }
+
+  .topnav #myLinks {
+
+  }
+
+  .burger_icon {
+    display: none;
+  }
+
+  .boton_arriba {
+    width: 80px;
+    height: 535;
+    cursor: pointer;
+  }
+
 }
 
+/* Responsive para smartphones */
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   body {
     font-family: Arial;
     padding: 0px;
@@ -259,22 +328,27 @@ body {
     background-image: url('../img/background.png');
   }
 
+  .header {
+    display: none;
+  }
+
+  .topnav_smartphone {
+    display: initial;
+  }
+
   .topnav a {
     float: none;
-    width: 100%;
   }
 
   .mobile-container {
     margin: auto;
     background-color: #555;
     height: 500px;
-    color: white;
     border-radius: 10px;
   }
 
   .topnav {
     overflow: hidden;
-    background-color: #333;
     position: relative;
   }
 
@@ -288,23 +362,48 @@ body {
     text-decoration: none;
     font-size: 17px;
     display: block;
+    margin: -1%;
   }
 
   .topnav a.icon {
-    background: black;
+    background: #55944C;
     display: block;
     position: absolute;
     right: 0;
     top: 0;
+    height: 65px;
   }
 
   .topnav a:hover {
-    background-color: #ddd;
+    background-color: #3D6A36;
     color: black;
   }
 
   .active {
-    background-color: #04AA6D;
+    margin: -1%;
     color: white;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  }
+
+  .active img {
+    width: 400px;
+    margin: -4%;
+  }
+
+  .nombre_seccion {
+    display: none;
+  }
+
+  .burger_icon {
+    display: initial;
+  }
+
+  .boton_arriba {
+    width: 70px;
+    height: 535;
+    cursor: pointer;
   }
 }

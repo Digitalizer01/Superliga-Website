@@ -2,58 +2,82 @@
 <html>
 <head>
   <link rel="stylesheet" href="../css/General.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="../js/Scroll_arriba.js">
   </script>
+  <script type="text/javascript" src="../js/Menu.js">
+  </script>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-
 </head>
+
+
 <body>
 
+<!-- Cabecera -->
 <div class="header">
   <a href="../index.html"><img src="../img/header.png" alt="Portada"></a>
 </div>
 
-<div class="topnav">
-  <a href="../index.html">Inicio</a>
-  <a href="Noticias.html">Noticias</a>
-  <a href="Clasificacion.html">Clasificación</a>
-  <a href="Equipos.html">Equipos</a>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
 
-  <a href="IniciarSesion.html" style="float:right">Iniciar sesión</a>
-</div>
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div>
+      <a href="../index.html" class="active"><img src="../img/header_smartphone.png" alt="Portada"
+                                                  class="topnav_smartphone"></a>
 
-<div class="row">
-  <div class="datos_inicio_sesion">
-    <div class="card">
-      <h2>Inicio de sesión</h2>
-      <form>
-        <b>Nombre</b><br>
-        <input type="text" name="correo"><br><br>
-
-        <b>Contraseña</b><br>
-        <input type="password" name="password"><br><br>
-
-        <input type="submit" value="Iniciar sesión"><br><br>
-
-        ¿No eres usuario? <a href="Registro.html">Regístrate aquí.</a>
-      </form>
     </div>
+    <div id="myLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="../html/Noticias.html">Noticias</a>
+      <a href="../html/Clasificacion.html">Clasficación</a>
+      <a href="../html/Equipos.html">Equipos</a>
+
+      <a href="../html/IniciarSesion.html" style="float:right">Iniciar sesión</a>
+    </div>
+    <div class="burger_icon">
+      <a href="javascript:void(0);" class="icon" onclick="BurguerMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Columnas -->
+  <div class="row">
+    <div class="datos_inicio_sesion">
+      <div class="card">
+        <h2>Inicio de sesión</h2>
+        <form>
+          <b>Nombre</b><br>
+          <input type="text" name="correo"><br><br>
+
+          <b>Contraseña</b><br>
+          <input type="password" name="password"><br><br>
+
+          <input type="submit" value="Iniciar sesión"><br><br>
+
+          ¿No eres usuario? <a href="Registro.html">Regístrate aquí.</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <div class="footer">
+    <hr>
+    <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="../img/icon_facebook.png"
+                                                                                         alt="Facebook"
+                                                                                         style="width:50px;height:535;"></a>
+    <a href="https://www.instagram.com/superliga" target="_self"><img src="../img/icon_instagram.png" alt="Instagram"
+                                                                      style="width:50px;height:535;"></a>
+    <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
+                                                                    style="width:50px;height:535;"></a>
   </div>
 </div>
 
-<div class="footer">
-  <hr>
-  <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="../img/icon_facebook.png"
-                                                                                       alt="Facebook"
-                                                                                       style="width:50px;height:535;"></a>
-  <a href="https://www.instagram.com/superliga" target="_self"><img src="../img/icon_instagram.png" alt="Instagram"
-                                                                    style="width:50px;height:535;"></a>
-  <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
-                                                                  style="width:50px;height:535;"></a>
-</div>
-
 <div class="scroll_up">
-  <img src="../img/Up_icon.png" alt="Boton_arriba" style="width:100px;height:535;cursor:pointer;"
+  <img src="../img/Up_icon.png" alt="Boton_arriba" class="boton_arriba"
        onclick="topFunction()">
 </div>
 

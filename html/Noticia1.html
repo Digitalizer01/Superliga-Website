@@ -2,94 +2,123 @@
 <html>
 <head>
   <link rel="stylesheet" href="../css/General.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="../js/Scroll_arriba.js">
   </script>
+  <script type="text/javascript" src="../js/Menu.js">
+  </script>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-
 </head>
 <body>
 
+<!-- Cabecera -->
 <div class="header">
   <a href="../index.html"><img src="../img/header.png" alt="Portada"></a>
 </div>
 
-<div class="topnav">
-  <a href="../index.html">Inicio</a>
-  <a href="Noticias.html">Noticias</a>
-  <a href="Clasificacion.html">Clasificación</a>
-  <a href="Equipos.html">Equipos</a>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
 
-  <a href="IniciarSesion.html" style="float:right">Iniciar sesión</a>
-</div>
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div>
+      <a href="../index.html" class="active"><img src="../img/header_smartphone.png" alt="Portada"
+                                                  class="topnav_smartphone"></a>
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h1>El Tottenham se harta y escoge delantero</h1>
-      <h2>
-        El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski.
-      </h2>
-      <p>
-        El Tottenham se ha puesto manos a la obra para pensar en los refuerzos que necesita de cara al mercado de enero.
-        El equipo está pasando por un crisis deportiva y eso ha hecho que desde la cúpula se planteen la situación.
-        Fabio Paratici, el director deportivo de los Spurs, se ha fichado en su anterior equipo, la Juventus.
-
-        El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski. El sueco, de tan
-        solo 21 años, es una de las promesas que tiene la vecchia signora en la plantilla. El atacante (extremo) anotó
-        siete goles y las mismas asistencias la pasada temporada. En esta aún no ha tenido oportunidades con Allegri.
-        Paratici lo fichó para la Juve y ahora quiere llevarlo también al Tottenham. Además, podría ser una fuente de
-        ingresos, ya que Kulusevski tiene un valor de mercado de 40 millones de euros en la actualidad.
-      </p>
-      <div class="imagen_notica_grande">
-        <img src="../img/noticias/Noticia1_Grande.jpg">
-        <br>
-        <i>Kulusevski en mitad del partido contra el Barcelona</i>
-      </div>
-
-      <p>
-        El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski. El sueco, de tan
-        solo 21 años, es una de las promesas que tiene la vecchia signora en la plantilla. El atacante (extremo) anotó
-        siete goles y las mismas asistencias la pasada temporada. En esta aún no ha tenido oportunidades con Allegri.
-        Paratici lo fichó para la Juve y ahora quiere llevarlo también al Tottenham. Además, podría ser una fuente de
-        ingresos, ya que Kulusevski tiene un valor de mercado de 40 millones de euros en la actualidad.
-      </p>
-
-      <div class="like_dislike">
-        <form>¿Te ha gustado la noticia? <input type="image" src="../img/noticias/like.png" alt="Boton like"><input
-          type="image" src="../img/noticias/dislike.png" alt="Boton dislike"></form>
-      </div>
     </div>
+    <div id="myLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="../html/Noticias.html">Noticias</a>
+      <a href="../html/Clasificacion.html">Clasficación</a>
+      <a href="../html/Equipos.html">Equipos</a>
 
-  </div>
-  <div class="rightcolumn">
-    <div class="encuesta">
-      <form alt="Encuesta">
-        <h3>¿Quién ganará mañana?</h3>
-        <input type="radio" id="id_real_madrid" name="equipo_ganador" value="RealMadrid">
-        <label for="id_real_madrid">Real Madrid</label><br>
-        <input type="radio" id="id_barcelona" name="equipo_ganador" value="Barcelona">
-        <label for="id_barcelona">Barcelona</label><br>
-        <br>
-        <input type="submit" value="Votar">
-      </form>
+      <a href="../html/IniciarSesion.html" style="float:right">Iniciar sesión</a>
+    </div>
+    <div class="burger_icon">
+      <a href="javascript:void(0);" class="icon" onclick="BurguerMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
   </div>
-</div>
 
-<div class="footer">
-  <hr>
-  <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="../img/icon_facebook.png"
-                                                                                       alt="Facebook"
-                                                                                       style="width:50px;height:535;"></a>
-  <a href="https://www.instagram.com/superliga" target="_self"><img src="../img/icon_instagram.png" alt="Instagram"
+  <!-- Columnas -->
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h1>El Tottenham se harta y escoge delantero</h1>
+        <h2>
+          El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski.
+        </h2>
+        <div class="youtube-video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Oiw8XY5ovf0" title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+        <p>
+          El Tottenham se ha puesto manos a la obra para pensar en los refuerzos que necesita de cara al mercado de
+          enero.
+          El equipo está pasando por un crisis deportiva y eso ha hecho que desde la cúpula se planteen la situación.
+          Fabio Paratici, el director deportivo de los Spurs, se ha fichado en su anterior equipo, la Juventus.
+
+          El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski. El sueco, de tan
+          solo 21 años, es una de las promesas que tiene la vecchia signora en la plantilla. El atacante (extremo) anotó
+          siete goles y las mismas asistencias la pasada temporada. En esta aún no ha tenido oportunidades con Allegri.
+          Paratici lo fichó para la Juve y ahora quiere llevarlo también al Tottenham. Además, podría ser una fuente de
+          ingresos, ya que Kulusevski tiene un valor de mercado de 40 millones de euros en la actualidad.
+        </p>
+        <div class="imagen_notica_grande">
+          <img src="../img/noticias/Noticia1_Grande.jpg">
+          <br>
+          <i>Kulusevski en mitad del partido contra el Barcelona</i>
+        </div>
+
+        <p>
+          El club londinense tiene un objetivo primordial para el mercado de enero: Dejan Kulusevski. El sueco, de tan
+          solo 21 años, es una de las promesas que tiene la vecchia signora en la plantilla. El atacante (extremo) anotó
+          siete goles y las mismas asistencias la pasada temporada. En esta aún no ha tenido oportunidades con Allegri.
+          Paratici lo fichó para la Juve y ahora quiere llevarlo también al Tottenham. Además, podría ser una fuente de
+          ingresos, ya que Kulusevski tiene un valor de mercado de 40 millones de euros en la actualidad.
+        </p>
+
+        <div class="like_dislike">
+          <form>¿Te ha gustado la noticia? <input type="image" src="../img/noticias/like.png" alt="Boton like"><input
+            type="image" src="../img/noticias/dislike.png" alt="Boton dislike"></form>
+        </div>
+      </div>
+
+    </div>
+    <div class="rightcolumn">
+      <div class="encuesta">
+        <form alt="Encuesta">
+          <h3>¿Quién ganará mañana?</h3>
+          <input type="radio" id="id_real_madrid" name="equipo_ganador" value="RealMadrid">
+          <label for="id_real_madrid">Real Madrid</label><br>
+          <input type="radio" id="id_barcelona" name="equipo_ganador" value="Barcelona">
+          <label for="id_barcelona">Barcelona</label><br>
+          <br>
+          <input type="submit" value="Votar">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <div class="footer">
+    <hr>
+    <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="../img/icon_facebook.png"
+                                                                                         alt="Facebook"
+                                                                                         style="width:50px;height:535;"></a>
+    <a href="https://www.instagram.com/superliga" target="_self"><img src="../img/icon_instagram.png" alt="Instagram"
+                                                                      style="width:50px;height:535;"></a>
+    <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
                                                                     style="width:50px;height:535;"></a>
-  <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
-                                                                  style="width:50px;height:535;"></a>
-</div>
+  </div>
 
+</div>
 
 <div class="scroll_up">
-  <img src="../img/Up_icon.png" alt="Boton_arriba" style="width:100px;height:535;cursor:pointer;"
+  <img src="../img/Up_icon.png" alt="Boton_arriba" class="boton_arriba"
        onclick="topFunction()">
 </div>
 

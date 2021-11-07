@@ -3,132 +3,154 @@
 <head>
   <link rel="stylesheet" href="../css/General.css">
   <link rel="stylesheet" href="../css/Tabla_clasificacion.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="../js/Scroll_arriba.js">
   </script>
+  <script type="text/javascript" src="../js/Menu.js">
+  </script>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-
 </head>
 <body>
 
+<!-- Cabecera -->
 <div class="header">
   <a href="../index.html"><img src="../img/header.png" alt="Portada"></a>
 </div>
 
-<div class="topnav">
-  <a href="../index.html">Inicio</a>
-  <a href="Noticias.html">Noticias</a>
-  <a href="Clasificacion.html">Clasificación</a>
-  <a href="Equipos.html">Equipos</a>
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
 
-  <a href="IniciarSesion.html" style="float:right">Iniciar sesión</a>
-</div>
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div>
+      <a href="../index.html" class="active"><img src="../img/header_smartphone.png" alt="Portada"
+                                                  class="topnav_smartphone"></a>
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h1>Clasificación</h1>
-      <div class="styled-table">
-        <table>
-          <tr>
-            <th>
-              Escudo equipo
-            </th>
-            <th>
-              Nombre equipo
-            </th>
-            <th>
-              Cantidad de goles
-            </th>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/1.png"></td>
-            <td>
-              Portiger
-            </td>
-            <td>
-              12
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/2.png"></td>
-            <td>
-              Casla
-            </td>
-            <td>
-              9
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/3.png"></td>
-            <td>
-              Tigre
-            </td>
-            <td>
-              7
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/4.png"></td>
-            <td>
-              Quala
-            </td>
-            <td>
-              6
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/5.png"></td>
-            <td>
-              C.A.T.
-            </td>
-            <td>
-              5
-            </td>
-          </tr>
-          <tr>
-            <td><img src="../img/equipos/6.png"></td>
-            <td>
-              C.A.I.
-            </td>
-            <td>
-              4
-            </td>
-          </tr>
-        </table>
+    </div>
+    <div id="myLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="../html/Noticias.html">Noticias</a>
+      <a href="../html/Clasificacion.html">Clasficación</a>
+      <a href="../html/Equipos.html">Equipos</a>
+
+      <a href="../html/IniciarSesion.html" style="float:right">Iniciar sesión</a>
+    </div>
+    <div class="burger_icon">
+      <a href="javascript:void(0);" class="icon" onclick="BurguerMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Columnas -->
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h1>Clasificación</h1>
+        <div class="styled-table">
+          <table>
+            <tr>
+              <th>
+                Escudo equipo
+              </th>
+              <th>
+                Nombre equipo
+              </th>
+              <th>
+                Cantidad de goles
+              </th>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/1.png"></td>
+              <td>
+                Portiger
+              </td>
+              <td>
+                12
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/2.png"></td>
+              <td>
+                Casla
+              </td>
+              <td>
+                9
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/3.png"></td>
+              <td>
+                Tigre
+              </td>
+              <td>
+                7
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/4.png"></td>
+              <td>
+                Quala
+              </td>
+              <td>
+                6
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/5.png"></td>
+              <td>
+                C.A.T.
+              </td>
+              <td>
+                5
+              </td>
+            </tr>
+            <tr>
+              <td><img src="../img/equipos/6.png"></td>
+              <td>
+                C.A.I.
+              </td>
+              <td>
+                4
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <div class="rightcolumn">
+      <div class="encuesta">
+        <form alt="Encuesta">
+          <h3>¿Quién ganará mañana?</h3>
+          <input type="radio" id="id_real_madrid" name="equipo_ganador" value="RealMadrid">
+          <label for="id_real_madrid">Real Madrid</label><br>
+          <input type="radio" id="id_barcelona" name="equipo_ganador" value="Barcelona">
+          <label for="id_barcelona">Barcelona</label><br>
+          <br>
+          <input type="submit" value="Votar">
+        </form>
       </div>
     </div>
-
   </div>
-  <div class="rightcolumn">
-    <div class="encuesta">
-      <form alt="Encuesta">
-        <h3>¿Quién ganará mañana?</h3>
-        <input type="radio" id="id_real_madrid" name="equipo_ganador" value="RealMadrid">
-        <label for="id_real_madrid">Real Madrid</label><br>
-        <input type="radio" id="id_barcelona" name="equipo_ganador" value="Barcelona">
-        <label for="id_barcelona">Barcelona</label><br>
-        <br>
-        <input type="submit" value="Votar">
-      </form>
-    </div>
-  </div>
-</div>
 
-<div class="footer">
-  <hr>
-  <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="img/icon_facebook.png"
-                                                                                       alt="Facebook"
-                                                                                       style="width:50px;height:535;"></a>
-  <a href="https://www.instagram.com/superliga" target="_self"><img src="img/icon_instagram.png" alt="Instagram"
+  <!-- Pie de página -->
+  <div class="footer">
+    <hr>
+    <a href="https://www.facebook.com/superliga" target="_self" class="footer_icon"><img src="../img/icon_facebook.png"
+                                                                                         alt="Facebook"
+                                                                                         style="width:50px;height:535;"></a>
+    <a href="https://www.instagram.com/superliga" target="_self"><img src="../img/icon_instagram.png" alt="Instagram"
+                                                                      style="width:50px;height:535;"></a>
+    <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
                                                                     style="width:50px;height:535;"></a>
-  <a href="https://www.youtube.com/superliga" target="_self"><img src="img/icon_youtube.png" alt="YouTube"
-                                                                  style="width:50px;height:535;"></a>
-</div>
+  </div>
 
-<div class="scroll_up">
-  <img src="../img/Up_icon.png" alt="Boton_arriba" style="width:100px;height:535;cursor:pointer;"
-       onclick="topFunction()">
-</div>
+  <div class="scroll_up">
+    <img src="../img/Up_icon.png" alt="Boton_arriba" class="boton_arriba"
+         onclick="topFunction()">
+  </div>
 
+</div>
 </body>
 </html>
