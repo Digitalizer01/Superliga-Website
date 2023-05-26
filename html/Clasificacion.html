@@ -8,13 +8,17 @@
   </script>
   <script type="text/javascript" src="../js/Menu.js">
   </script>
+  <script type="text/javascript" src="../js/auth_2.js">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"></script>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 </head>
 <body>
 
 <!-- Cabecera -->
 <div class="header">
-  <a href="../index.html"><img src="../img/header.png" alt="Portada"></a>
+  <a href="../index.html"><img src="../img/header.png" alt=""></a>
 </div>
 
 <!-- Simulate a smartphone / tablet -->
@@ -23,6 +27,7 @@
   <!-- Top Navigation Menu -->
   <div class="topnav">
     <div>
+      <a href="../index.html" class="active"><img src="../img/header_smartphone.png" alt="">
       <a href="../index.html" class="active"><img src="../img/header_smartphone.png" alt="Portada"
                                                   class="topnav_smartphone"></a>
 
@@ -32,6 +37,12 @@
       <a href="../html/Noticias.html">Noticias</a>
       <a href="../html/Clasificacion.html">Clasficación</a>
       <a href="../html/Equipos.html">Equipos</a>
+      <a>
+
+      </a>
+      <a id="idnuevo" style="float:right"></a>
+      <a href="../html/IniciarSesion.html" style="float:right" id="id_iniciar_sesion">Iniciar sesión</a>
+      <a style="float:right" id="id_div_logout"><button onclick="logout()" id="id_logout"></button></a>
 
       <a href="../html/IniciarSesion.html" style="float:right">Iniciar sesión</a>
     </div>
@@ -66,6 +77,7 @@
                 Portiger
               </td>
               <td>
+                <div id="id_puntos_Portiger"></div>
                 12
               </td>
             </tr>
@@ -75,6 +87,7 @@
                 Casla
               </td>
               <td>
+                <div id="id_puntos_Casla"></div>
                 9
               </td>
             </tr>
@@ -84,6 +97,7 @@
                 Tigre
               </td>
               <td>
+                <div id="id_puntos_Tigre"></div>
                 7
               </td>
             </tr>
@@ -93,12 +107,17 @@
                 Quala
               </td>
               <td>
+                <div id="id_puntos_Quala"></div>
                 6
               </td>
             </tr>
             <tr>
               <td><img src="../img/equipos/5.png"></td>
               <td>
+                CAT
+              </td>
+              <td>
+                <div id="id_puntos_CAT"></div>
                 C.A.T.
               </td>
               <td>
@@ -108,6 +127,10 @@
             <tr>
               <td><img src="../img/equipos/6.png"></td>
               <td>
+                CAI
+              </td>
+              <td>
+                <div id="id_puntos_CAI"></div>
                 C.A.I.
               </td>
               <td>
@@ -122,6 +145,12 @@
     <div class="rightcolumn">
       <div class="encuesta">
         <form alt="Encuesta">
+          <h3><div id="id_titulo_encuesta"></div></h3>
+          <input type="button" id="id_opcion1" name="equipo_ganador">
+          <label for="id_opcion1"></label><br>
+          <input type="button" id="id_opcion2" name="equipo_ganador">
+          <label for="id_opcion2"></label><br>
+          <br>
           <h3>¿Quién ganará mañana?</h3>
           <input type="radio" id="id_real_madrid" name="equipo_ganador" value="RealMadrid">
           <label for="id_real_madrid">Real Madrid</label><br>
@@ -145,6 +174,390 @@
     <a href="https://www.youtube.com/superliga" target="_self"><img src="../img/icon_youtube.png" alt="YouTube"
                                                                     style="width:50px;height:535;"></a>
   </div>
+  <div class="scroll_up">
+    <img src="../img/Up_icon.png" alt="Boton_arriba" style="width:100px;height:535;cursor:pointer;"
+         onclick="topFunction()">
+  </div>
+
+</div>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    ---
+  };
+  firebase.initializeApp(config);
+
+</script>
+<script src="../js/auth_2.js"></script>
+
+<script type="module">
+  console.log("Estoy en el script 2 del html de Noticias");
+  // Import the functions you need from the SDKs you need
+  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    ---
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  import {getDatabase, ref, set, get, child, update, remove}
+    from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+
+  const db = getDatabase();
+
+  // -------------- References ----------------- //
+  var namebox = document.getElementById("Namebox");
+  var rollbox = document.getElementById("Rollbox");
+  var secbox = document.getElementById("Secbox");
+  var genbox = document.getElementById("Genbox");
+
+  var insBtn = document.getElementById("Insbtn");
+  var selBtn = document.getElementById("Selbtn");
+  var updBtn = document.getElementById("Updbtn");
+  var delBtn = document.getElementById("Delbtn");
+
+  var opcion1Btn = document.getElementById("id_opcion1");
+  var opcion2Btn = document.getElementById("id_opcion2");
+
+  // ------------- INSERT DATA FUNCTION ------------- //
+
+  function CrearUsuario() {
+
+    const dbref = ref(db);
+
+    var myStr = leerCookie("user_mail");
+    var newStr = myStr.split('.').join("");
+    console.log(newStr)
+
+    update(ref(db, "Usuarios/" + newStr), {
+      NameOfStd: "namebox.value",
+      RollNo: "rollbox.value",
+      Section: "secbox.value",
+      Gender: "genbox.value"
+    })
+      .then(() => {
+        // alert("data updated succesfully!")
+      })
+      .catch((error) => {
+        //  alert("unsuccessful, error" + error);
+      });
+
+  }
+
+  function InsertData() {
+
+    const dbref = ref(db);
+
+    get(child(dbref, "Usuarios/" + rollbox.value)).then((snapshot) => {
+      if (snapshot.exists()) {
+        alert("El usuario con ese nombre ya existe.");
+
+      } else {
+        set(ref(db, "Usuarios/" + rollbox.value), {
+          NameOfStd: namebox.value,
+          RollNo: rollbox.value,
+          Section: secbox.value,
+          Gender: genbox.value
+        })
+          .then(() => {
+            alert("data store succesfully!")
+          })
+          .catch((error) => {
+            alert("unsuccessful, error" + error);
+          });
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+  }
+
+  // ------------- SELECT DATA FUNCTION ------------- //
+
+  function SelectData() {
+    const dbref = ref(db);
+
+    get(child(dbref, "Usuarios/" + rollbox.value)).then((snapshot) => {
+      if (snapshot.exists()) {
+        namebox.value = snapshot.val().NameOfStd;
+        secbox.value = snapshot.val().Section;
+        genbox.value = snapshot.val().Gender;
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+  }
+
+  // ------------- UPDATE DATA FUNCTION ------------- //
+
+  function UpdateData() {
+    update(ref(db, "Usuarios/" + rollbox.value), {
+      NameOfStd: namebox.value,
+      RollNo: rollbox.value,
+      Section: secbox.value,
+      Gender: genbox.value
+    })
+      .then(() => {
+        alert("data updated succesfully!")
+      })
+      .catch((error) => {
+        alert("unsuccessful, error" + error);
+      });
+  }
+
+  // ------------- REMOVE DATA FUNCTION ------------- //
+
+  function RemoveData() {
+    remove(ref(db, "Usuarios/" + rollbox.value))
+      .then(() => {
+        alert("data removed successfully");
+      })
+      .catch((error) => {
+        alert("unsuccessfully, error" + error);
+      });
+  }
+
+  function leerCookie (key) {
+    var name = key + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i].trim();
+      if ((c.indexOf(name)) == 0) {
+        hay_usuario=true;
+        return c.substr(name.length);
+      }
+
+    }
+    return null;
+  }
+
+  function CargarClasificacion() {
+    const dbref = ref(db);
+
+    // Portiger
+    get(child(dbref, "Clasificacion/Portiger/")).then((snapshot) => {
+      if (snapshot.exists()) {;
+        document.getElementById("id_puntos_Portiger").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // Casla
+    get(child(dbref, "Clasificacion/Casla/")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_puntos_Casla").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // Tigre
+
+    get(child(dbref, "Clasificacion/Tigre/")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_puntos_Tigre").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // Quala
+    get(child(dbref, "Clasificacion/Quala/")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_puntos_Quala").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // CAT
+    get(child(dbref, "Clasificacion/CAT/")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_puntos_CAT").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // CAI
+    get(child(dbref, "Clasificacion/CAI/")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_puntos_CAI").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+  }
+
+  function CargarEncuesta() {
+    const dbref = ref(db);
+
+    // Pregunta
+    get(child(dbref, "Encuesta/Pregunta")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_titulo_encuesta").innerHTML = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // Respuesta1
+    get(child(dbref, "Encuesta/Respuesta1")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_opcion1").value = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+    // Respuesta2
+    get(child(dbref, "Encuesta/Respuesta2")).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("id_opcion2").value = snapshot.val();
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+
+
+  }
+
+  function subir_opcion1(){
+    const dbref = ref(db);
+
+    get(child(dbref, "Encuesta/Opcion1")).then((snapshot) => {
+      if (snapshot.exists()) {
+        // Principio update
+        var cantidad_votos = snapshot.val()
+        alert("Se ha enviado la votación");
+
+        cantidad_votos += 1;
+        update(ref(db, "Encuesta/"), {
+          Opcion1: cantidad_votos
+        })
+          .then(() => {
+            //alert("data updated succesfully!")
+          })
+          .catch((error) => {
+            alert("unsuccessful, error" + error);
+          });
+        // Fin update
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+  }
+
+  function subir_opcion2(){
+    const dbref = ref(db);
+
+    get(child(dbref, "Encuesta/Opcion2")).then((snapshot) => {
+      if (snapshot.exists()) {
+        // Principio update
+        var cantidad_votos = snapshot.val()
+        alert("Se ha enviado la votación");
+
+        cantidad_votos += 1;
+        update(ref(db, "Encuesta/"), {
+          Opcion2: cantidad_votos
+        })
+          .then(() => {
+            //alert("data updated succesfully!")
+          })
+          .catch((error) => {
+            alert("unsuccessful, error" + error);
+          });
+        // Fin update
+      } else {
+        alert("No data found");
+      }
+    })
+      .catch((error) => {
+        alert("Unseccessful, error" + error)
+      })
+  }
+
+
+
+  console.log("Estoy sobre imprimir");
+
+  var usuario_cookie = leerCookie("user_mail");
+  if (usuario_cookie == null) {
+
+  } else {
+    document.getElementById("idnuevo").innerHTML =
+      "Bienvenido, " + usuario_cookie;
+    document.getElementById("id_logout").innerHTML =
+      "LOG OUT";
+    CrearUsuario();
+  }
+  CargarClasificacion();
+ CargarEncuesta();
+
+
+
+  // ------------- Assign events to btns ------------- //
+
+
+  opcion1Btn.addEventListener('click', subir_opcion1);
+  opcion2Btn.addEventListener('click', subir_opcion2);
+
+
+</script>
+<script>
+  console.log("Hello");
+  setTimeout(() => {
+    if (document.getElementById("idnuevo").text == "HAYUSUARIO") {
+      console.log("el script de arriba ha determinado que hay usuario");
+    } else {
+      console.log("valor de ese div: " + document.getElementById("idnuevo").text);
+    }
+  }, 1000);
+
+
+</script>
 
   <div class="scroll_up">
     <img src="../img/Up_icon.png" alt="Boton_arriba" class="boton_arriba"
